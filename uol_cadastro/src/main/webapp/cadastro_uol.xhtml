@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head><title>Cadastro UOL</title>	</h:head>
+<h:body>
+	<h:form id="form" prependId="false">		
+		<p:panel header="Cadastro de Jogador UOL">
+			<h:panelGrid columns="2">
+				<h:outputText value="Nome" />
+				<p:inputText value="#{cadastroMB.jogador.nome}" size="40" 
+						required="true" requiredMessage="Nome é obrigatório" />
+				<h:outputText value="E-mail" />
+				<p:inputText value="#{cadastroMB.jogador.email}" size="40" required="true"
+								requiredMessage="Email é obrigatório" />
+				<h:outputText value="Telefone" />
+				<p:inputText value="#{cadastroMB.jogador.telefone}" size="40" />
+			</h:panelGrid>
+			<p/>
+			<h:panelGrid id="pg">
+				<h:outputText value="Quero ser do grupo:" />
+				<p:selectOneRadio layout="pageDirection" value="#{cadastroMB.jogador.grupo}"
+									required="true" requiredMessage="Grupo obrigatório">
+					<p:ajax update="codinomes" listener="#{cadastroMB.selecionarGrupo}" />
+					<f:selectItems value="#{cadastroMB.grupos}" var="g" itemLabel="#{g.nome}" itemValue="#{g}"/>
+				</p:selectOneRadio>
+			</h:panelGrid>
+			<br/>
+			<h:panelGrid id="codinomes">								
+				<p:selectOneMenu id="selectCodinomes"
+									required="true"
+									requiredMessage="Escolha um codinome" 
+									value="#{cadastroMB.jogador.codinome}" 
+									rendered="#{cadastroMB.jogador.grupo != null}">
+					<f:selectItem noSelectionOption="true" itemLabel="Selecione codinome" itemValue="#{null}" />
+					<f:selectItems value="#{cadastroMB.codinomes}"/>
+				</p:selectOneMenu>
+			</h:panelGrid>
+			<p/>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Cadastrar" action="#{cadastroMB.cadastrar}" update="form" />
+				<p:commandButton value="Listar Jogadores" action="#{cadastroMB.listarJogadores}" 
+								immediate="true" ajax="false"/>
+			</h:panelGrid>
+		</p:panel>
+		<p:messages>
+			<p:autoUpdate/>
+		</p:messages>
+	</h:form>
+</h:body>
+
+</html>

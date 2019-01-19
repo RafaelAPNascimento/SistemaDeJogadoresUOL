@@ -1,0 +1,10 @@
+version: '3.5'
+services:  
+  backend:
+    build: uol_view_be    
+    ports:
+      - 8989:8080        
+  web:
+    build: uol_cadastro
+    ports:
+      - 8180:8080    

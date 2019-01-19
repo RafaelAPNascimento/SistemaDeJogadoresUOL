@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head><title>Cadastro UOL</title>	</h:head>
+
+<h:body>
+	<h:form id="form" prependId="false">
+		<p:panel header="Jogadores Cadastrados">
+			<p:dataTable id="tabJogadores" value="#{listaJogadoresMB.jogadores}" var="jogador" 
+							emptyMessage="Nenhum jogador cadastrado">				
+				<p:column headerText="Nome">
+					<h:outputText value="#{jogador.nome}" />
+				</p:column>
+				<p:column headerText="Email">
+					<h:outputText value="#{jogador.email}" />
+				</p:column>
+				<p:column headerText="Telefone">
+					<h:outputText value="#{jogador.telefone}" />
+				</p:column>
+				<p:column headerText="Codinome">
+					<h:outputText value="#{jogador.codinome}" />
+				</p:column>
+				<p:column headerText="Grupo">
+					<h:outputText value="#{jogador.grupo}" />
+				</p:column>
+				<p:column>
+					<h:panelGrid columns="2">
+						<p:commandButton value="editar" action="#{listaJogadoresMB.editar}">
+							<f:setPropertyActionListener value="#{jogador}" target="#{listaJogadoresMB.jogador}"/>
+						</p:commandButton>
+						<p:commandButton value="excluir" action="#{listaJogadoresMB.excluir}" update="tabJogadores">
+							<f:setPropertyActionListener value="#{jogador}" target="#{listaJogadoresMB.jogador}"/>
+						</p:commandButton>
+					</h:panelGrid>
+				</p:column>
+			</p:dataTable>
+			<p/>
+			<p:commandButton value="Novo Jogador" action="#{listaJogadoresMB.novoJogador}" />		
+		</p:panel>
+		<p:messages>
+			<p:autoUpdate/>
+		</p:messages>
+	</h:form>
+
+</h:body>
+</html>
+

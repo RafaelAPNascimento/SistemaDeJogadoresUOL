@@ -1,0 +1,10 @@
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/service/domain/Grupo.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/UolViewBeApplication.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/service/domain/Vingador.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/exceptions/CodinomeIndisponivelException.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/Infos.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/service/domain/Vingadores.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/service/domain/LigaDaJustica.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/repository/JogadorRepository.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/service/domain/Jogador.java
+/home/rafael/eclipse-workspace/uol_view_be/src/main/java/com/uol/rest/JogadorController.java
